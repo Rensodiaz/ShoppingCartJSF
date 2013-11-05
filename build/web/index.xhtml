@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <!--Encabezado-->
+        <div id="header">
+            <ui:insert name="header" >
+                <ui:include src="/WEB-INF/layout/Head.xhtml" />
+            </ui:insert>
+        </div>
+        <br/>
+        <!--Fin de encabezado-->
+        
+        <div align="center">
+            <br/>
+            <div class="t"><div class="b">
+                    <div class="block clearfix">                                
+                        <div style="width:300px; margin:0 auto;" align="left">                                    
+                            <h1>Login Usuario</h1>
+                            <h:form>
+                                <div style="background-color: red">#{login.mensaje}</div>
+                                <h:panelGrid columns="2">
+                                    <Strong >UsuarioId: </Strong> <h:inputText value="#{login.usuarioID}"
+                                                                               validatorMessage="*Inserte Usuario Id porfavor"> 
+                                    </h:inputText>
+                                    <strong> Password: </strong> <h:inputSecret value="#{login.password}" 
+                                                                                validatorMessage="*Inserte Password porfavor"> </h:inputSecret>
+                                    <h:link outcome="crearCuenta" value="Crear cuenta"></h:link>
+                                    <h:commandButton action="#{login.logear()}" value="Procesar"></h:commandButton>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                    </div>
+                </div><br class="clear" />
+            </div>
+        </div>
+
+        <!--Pie de pagina-->
+        <div id="footer">
+            <ui:insert name="footer" >
+                <ui:include src="WEB-INF/layout/foot.xhtml" />
+            </ui:insert>
+        </div>
+        <!--Fin de pie de pagina--> 
+       
+
+    </h:body>
+</html>
+

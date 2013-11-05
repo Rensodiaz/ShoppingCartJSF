@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <!--Encabezado-->
+        <div id="header">
+            <ui:insert name="header" >
+                <ui:include src="/WEB-INF/layout/Head.xhtml" />
+            </ui:insert>
+        </div>
+        <br/>
+        <!--Fin de encabezado-->
+
+        <div id="navigation" class="clearfix i24">
+            <ul>
+                <li id="current-24" ><a href="index.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-settings-actions.png" alt="" title="" /><br />Index</a></li>
+                <!--                <li class="layout"><a href="layout.html"><img src="./core/images/icons/i24/admin/admin-build.png" alt="" title="" /><br />Layout</a></li>
+                                <li class="content"><a href="content.html"><img src="./core/images/icons/i24/admin/admin-content.png" alt="" title="" /><br />Content</a></li>-->
+                <!--                <li class="scripts"><a href="scripts.html"><img src="./core/images/icons/i24/admin/admin-content-node-settings.png" alt="" title="" /><br />Scripts</a></li>
+                                <li class="help"><a href="help.html"><img src="./core/images/icons/i24/admin/admin-help.png" alt="" title="" /><br />Help</a></li>-->
+            </ul>
+            <img src="./resources/core/misc/cart2.gif" alt="localhost" id="logo" />
+        </div>
+        <div id="content-wrap">           
+            <div id="inside">
+                <div id="content">                    
+                    <div class="t"><div class="b">
+                            <div class="block clearfix">                                
+                                <div style="width:300px; margin:0 auto;">                                        
+                                    <h1>Creacion usuario</h1>
+                                    <div style="background-color: red">#{crearCuenta.m}</div>
+                                    <h:message for="id" style="color: red"/><br/>
+                                    <h:message for="nombre" style="color: red"/><br/>
+                                    <h:message for="apellido" style="color: red"/><br/>
+                                    <h:message for="clave" style="color: red"/>
+                                    <h:form>
+                                        <h:panelGrid columns="2" rowClasses="4" >
+                                            <strong>UsuarioId: </strong><h:inputText id="id" value="#{crearCuenta.usuarioid}" validatorMessage="*Inserte Usuario Id porfavor"></h:inputText>
+                                            <strong>Nombre: </strong><h:inputText id="nombre" value="#{crearCuenta.nombre}" validatorMessage="*Inserte Nombre Porfavor"></h:inputText>
+                                            <strong>Apellido: </strong><h:inputText id="apellido" value="#{crearCuenta.apellido}" validatorMessage="*Inserte Apellido porfavor"></h:inputText>
+                                            <strong>Clave: </strong><h:inputSecret id="clave" value="#{crearCuenta.clave}" validatorMessage="*Inserte Clave porfavor"></h:inputSecret>                        
+                                        </h:panelGrid>
+                                        <h:commandButton value="Crear" action="#{crearCuenta.creacion()}"></h:commandButton>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div><br class="clear" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Pie de pagina-->
+        <div id="footer">
+            <ui:insert name="footer" >
+                <ui:include src="WEB-INF/layout/foot.xhtml" />
+            </ui:insert>
+        </div>
+        <!--Fin de pie de pagina-->
+    </h:body>
+</html>
+

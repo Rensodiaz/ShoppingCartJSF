@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:body>
+         <!--Encabezado-->
+	    <div id="header">
+		<ui:insert name="header" >
+		  <ui:include src="/WEB-INF/layout/Head.xhtml" />
+		</ui:insert>
+	    </div>
+            <br/>
+            <!--Fin de encabezado-->
+            
+            <div id="navigation" class="clearfix i24">
+                <ul>
+                    <!--<li class="hello"><a href="index.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-settings-actions.png" alt="" title="" /><br />Index</a></li>-->               
+                    <li class="content"><a href="productosDisponibles.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-content.png" alt="" title="" /><br />Lista de Productos</a></li>
+                    
+                    <!--<li class="content"><a href="historialVentas.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-content.png" alt="" title="" /><br />Historial Ventas</a></li>-->
+                    <li class="layout"><a href="agregarProducto.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-build.png" alt="" title="" /><br />Agregar producto</a></li>
+                    
+                </ul>
+                <img src="./resources/core/misc/cart2.gif" alt="localhost" id="logo" />
+            </div>       
+
+            <div id="breadcrumb-title-wrapper">
+                <h2>Historial de ventas</h2>                
+            </div>
+            
+            <div id="content-wrap">
+                <table border="1" cellpadding="2">
+                    <thead style="background-color: activeborder">
+                        <h:panelGroup>
+                             <tr>
+                                 <td class="order-table-even-row"><Strong>Cliente</Strong></td>
+                                 <td class="order-table-even-row"><Strong>Monto</Strong></td>
+                                 <td class="order-table-even-row"><Strong>Fecha</Strong></td>                                 
+                             </tr>
+                       </h:panelGroup>
+                   </thead>
+                    <tbody>
+                        
+                        <ui:repeat value="#{historialVentas.historial()}" var="c">
+                                <h:panelGroup>
+                                    <tr>
+                                        <td class="order-table-odd-row">#{c.getUsuario().getNombre()}</td>
+                                        <td class="order-table-odd-row">#{c.getTotal()}</td>
+                                        <td><h:outputText value="#{c.getFechaVenta()}" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </h:outputText></td>                                
+                                    </tr>
+                                </h:panelGroup>  
+                            </ui:repeat>
+                       
+                    </tbody>
+                </table>
+            </div>
+        
+         <!--Pie de pagina-->
+	    <div id="footer">
+	    	<ui:insert name="footer" >
+	    	  <ui:include src="WEB-INF/layout/foot.xhtml" />
+	    	</ui:insert>
+    	    </div>
+        <!--Fin de pie de pagina-->            
+            
+    </h:body>
+</html>
+

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">    
+
+    <h:body>      
+
+        <!--Encabezado-->
+        <div id="header">
+            <ui:insert name="header" >
+                <ui:include src="/WEB-INF/layout/Head.xhtml" />
+            </ui:insert>
+        </div>
+        <br/>
+        <!--Fin de encabezado-->
+
+        <div id="navigation" class="clearfix i24">
+            <ul>
+                <!--<li class="hello"><a href="index.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-settings-actions.png" alt="" title="" /><br />Index</a></li>-->               
+                <li class="content"><a href="historialCarrito.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-content.png" alt="" title="" /><br />Ver cart</a></li>
+                <c:if test="#{userSesion.user.usuarioid.equals('admin')}">
+                    <li class="content"><a href="historialVentas.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-content.png" alt="" title="" /><br />Historial Ventas</a></li>
+                    <li class="layout"><a href="agregarProducto.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-build.png" alt="" title="" /><br />Agregar producto</a></li>
+                </c:if>
+            </ul>
+            <img src="./resources/core/misc/cart2.gif" alt="localhost" id="logo" />
+        </div>       
+
+        <div id="breadcrumb-title-wrapper">            
+            <h2><strong>Usuario:</strong> #{userSesion.user.usuarioid}</h2>
+            <h2>Productos Disponibles</h2>
+        </div>
+
+        <div id="content-wrap">
+            <div align="center" style="background-color: #ff0">
+                <h:outputText id="mensaje" value="#{mensaje.mensaje}"/>
+            </div>
+            <table border="1" cellpadding="2">
+                <thead style="background-color: activeborder">                    
+                    <tr>
+                        <td ><Strong>ID</Strong></td>
+                        <td ><Strong>Nombre</Strong></td>
+                        <td ><Strong>Descripcion</Strong></td>
+                        <td ><Strong>Cantidad Disponible</Strong></td>
+                        <td ><Strong>Precio</Strong></td>
+                        <td ><Strong>Cantidad Deseada</Strong></td>                             
+                        <td ><Strong>Accion</Strong></td>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <ui:repeat value="#{productosDisponibles.listaProductos()}" var="p">                       
+                        <tr>
+                            <td >#{p.getId()}</td>
+                            <td >#{p.getNombre()}</td>
+                            <td >#{p.getDescripcion()}</td>
+                            <td >#{p.getCantidadExistencia()}</td>
+                            <td >#{p.getPrecioVenta()}</td>
+                            <h:form prependId="false">
+                                <td >
+                                    <input type="number" min="1" max="#{p.getCantidadExistencia()}" size="7" name="cantidadRequerida" />
+                                </td>
+                                <td >
+                                    <h:commandButton value="agregar" action="#{productosDisponibles.ProcesarAgregar(p, userSesion)}" />                                       
+                                </td>
+                            </h:form>
+                        </tr>                        
+                    </ui:repeat>
+                </tbody>
+            </table>
+        </div>
+
+        <!--Pie de pagina-->
+        <div id="footer">
+            <ui:insert name="footer" >
+                <ui:include src="WEB-INF/layout/foot.xhtml" />
+            </ui:insert>
+        </div>
+        <!--Fin de pie de pagina--> 
+
+    </h:body>
+</html>
+

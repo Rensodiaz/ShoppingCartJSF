@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <!--Encabezado-->
+    <div id="header">
+        <ui:insert name="header" >
+            <ui:include src="/WEB-INF/layout/Head.xhtml" />
+        </ui:insert>
+    </div>
+    <br/>
+    <!--Fin de encabezado-->
+
+    <div id="navigation" class="clearfix i24">
+        <ul>
+            <li class="content"><a href="productosDisponibles.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-content.png" alt="" title="" /><br />Lista de Productos</a></li>
+            <li class="content"><a href="historialVentas.xhtml"><img src="./resources/core/images/icons/i24/admin/admin-content.png" alt="" title="" /><br />Historial Ventas</a></li>
+        </ul>
+        <img src="./resources/core/misc/cart2.gif" alt="localhost" id="logo" />
+    </div>
+    <div id="content-wrap">           
+        <div id="inside">
+            <div id="content">                    
+                <div class="t"><div class="b">
+                        <div class="block clearfix">                                
+                            <div style="width:300px; margin:0 auto;">                                        
+                                <h1>Agregar Producto</h1>
+                                <div style="background-color: red">#{crearCuenta.m}</div>
+                                <h:message for="id" style="color: red"/><br/>
+                                <h:message for="nombre" style="color: red"/><br/>
+                                <h:message for="apellido" style="color: red"/><br/>
+                                <h:message for="clave" style="color: red"/>
+                                <h:form>
+                                    <h:panelGrid columns="2" rowClasses="4" >
+                                        <strong>Nombre: </strong><h:inputText id="id" value="#{agregarProducto.nombre}" validatorMessage="*Inserte nombre producto porfavor"></h:inputText>
+                                        <strong>Descripcion: </strong><h:inputText id="nombre" value="#{agregarProducto.descripcion}" validatorMessage="*Inserte descripcion Porfavor"></h:inputText>
+                                        <strong>Cantidad: </strong><h:inputText id="apellido" value="#{agregarProducto.cantidad}" validatorMessage="*Inserte cantidad porfavor"></h:inputText>
+                                        <strong>Precio: </strong><h:inputText id="clave" value="#{agregarProducto.precio}" validatorMessage="*Inserte precio porfavor"></h:inputText>                        
+                                    </h:panelGrid>
+                                    <h:commandButton value="Agregar" action="#{agregarProducto.agregar()}"></h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div><br class="clear" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Pie de pagina-->
+    <div id="footer">
+        <ui:insert name="footer" >
+            <ui:include src="WEB-INF/layout/foot.xhtml" />
+        </ui:insert>
+    </div>
+    <!--Fin de pie de pagina-->
+</html>
+

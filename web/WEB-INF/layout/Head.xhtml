@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <body class="clearfix i24">
+	    <ui:composition>
+                
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <link rel="shortcut icon" href="./resources/core/misc/favicon.ico" type="image/x-icon" />
+                <link type="text/css" rel="stylesheet" media="all" href="./resources/core/css/reset.css" />
+                <link type="text/css" rel="stylesheet" media="screen" href="./resources/core/css/global.css" />
+                <link type="text/css" rel="stylesheet" media="screen" href="./resources/core/css/typography.css" />
+                <link type="text/css" rel="stylesheet" media="screen" href="./resources/core/css/layout.css" />
+                <link type="text/css" rel="stylesheet" media="screen" href="./resources/core/css/navigation.css" />
+                <link type="text/css" rel="stylesheet" media="screen" href="./resources/core/css/form.css" />
+                <link type="text/css" rel="stylesheet" media="screen" href="./resources/default/css/layout.css" />
+                <link type="text/css" rel="stylesheet" media="screen" href="./resources/user/style.css" />
+                
+               
+                <!-- Layout -->
+                <div id="top-panel">
+                    <div id="top-panel-head">
+                        <div id="go-home">
+                            <a href="#" title="Go Back to Homepage">Tienda la popular</a>
+                        </div>
+                        <div align="right">
+                            <h:form> <h:commandButton value="LogOut" action="#{logout.logout()}"/></h:form>
+                        </div>
+                        <div id="header-title" class="clearfix">
+                        </div>
+                    </div>
+                </div>               
+                
+	    </ui:composition>
+    </body>
+</html>
